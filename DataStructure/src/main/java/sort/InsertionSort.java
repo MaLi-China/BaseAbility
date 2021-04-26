@@ -1,4 +1,4 @@
-package com.nengli51.geektime.course11_sort;
+package sort;
 
 import org.junit.Test;
 
