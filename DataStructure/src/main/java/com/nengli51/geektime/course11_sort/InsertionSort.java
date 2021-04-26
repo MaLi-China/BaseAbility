@@ -7,7 +7,7 @@ import org.junit.Test;
  * 插入排序: 小 --> 大
  */
 public class InsertionSort {
-    public void insertionSort(int[] arr, int n) {
+    public static void insertionSort(int[] arr, int n) {
         // 边界条件判断
         if (n <= 1) return;
         /*

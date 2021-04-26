@@ -13,7 +13,7 @@ public class BubbleSort {
      * @param arr 待排序数组
      * @param n   数组长度
      */
-    public void bubbleSort(int[] arr, int n) {
+    public static void bubbleSort(int[] arr, int n) {
         // 边界判断: 数组长度
         if (n <= 1) return;
         // 数据交换标志
