@@ -12,6 +12,11 @@
     <!-- 聚合子module -->
     <modules>
         <module>DataStructure</module>
+        <module>Dubbo_apply</module>
+        <module>Spring_apply</module>
+        <module>MyBatis_apply</module>
+        <module>SpringMVC_apply</module>
+        <module>SSM_apply</module>
     </modules>
 
     <!-- 集中定义依赖版本号 -->
@@ -22,13 +27,15 @@
 
         <junit.version>4.13.2</junit.version>
     </properties>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <!-- 依赖 -->
-    <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-        </dependency>
-    </dependencies>
+
 </project>
