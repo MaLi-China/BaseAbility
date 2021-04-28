@@ -12,7 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class WatchDemo implements Watcher {
     @Override
     public void process(WatchedEvent watchedEvent) {
-        watchedEvent.getState();
+        Event.KeeperState state = watchedEvent.getState();
     }
 
     @Test

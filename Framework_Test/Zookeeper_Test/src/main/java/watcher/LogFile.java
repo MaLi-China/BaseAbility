@@ -30,6 +30,4 @@ public class LogFile {
         logger.info("logger info...");
 
     }
-
-
 }
