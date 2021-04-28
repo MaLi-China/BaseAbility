@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <bean id="someService" class="spring.aop.service.SomeServiceImpl"></bean>
+    <bean id="logger" class="spring.aop.advice.LoggerAdvice"></bean>
+    <aop:config>
+        <!--        切入点配置: 增强谁-->
+        <aop:pointcut id="service1" expression="execution(* spring.aop.service.*.method(..))"/>
+        <aop:pointcut id="service2" expression="execution(* spring.aop.service.*.method_withException(..))"/>
+        <!--        切面配置: 组装切入点和通知: 连接被增强的类和通知-->
+        <aop:aspect id="loggerAspect" ref="logger">
+            <aop:after method="logger" pointcut-ref="service1"/>
+            <aop:after-throwing method="logger" pointcut-ref="service2"/>
+        </aop:aspect>
+    </aop:config>
+</beans>
