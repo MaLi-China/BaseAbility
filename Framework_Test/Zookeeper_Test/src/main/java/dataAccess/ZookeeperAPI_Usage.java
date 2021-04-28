@@ -1,9 +1,8 @@
 package dataAccess;
 
-import org.apache.zookeeper.WatchedEvent;
-import org.apache.zookeeper.Watcher;
-import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.*;
 import org.apache.zookeeper.data.Stat;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -20,15 +19,34 @@ public class ZookeeperAPI_Usage implements Watcher {
     private static Stat stat = new Stat();
     private static ZooKeeper zooKeeper;
 
-    @Test
+    /**
+     * 创建会话
+     */
+    @Before
     public void createSession() {
         try {
             zooKeeper = new ZooKeeper(hostList, 5000, this);
+            System.out.println("state:" + zooKeeper.getState());
             countDownLatch.await();
             System.out.println("Zookeeper Session 创建完成.");
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 创建节点
+     *
+     * @throws InterruptedException
+     * @throws KeeperException
+     */
+    @Test
+    public void createZNode() throws InterruptedException, KeeperException {
+        String path1 = zooKeeper.create("/ZookeeperAPI_Usage_create_", "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+        System.out.println("Success create znode:" + path1);
+        String path2 = zooKeeper.create("/ZookeeperAPI_Usage_create_", "".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL_SEQUENTIAL);
+        System.out.println("Success create znode:" + path2);
+        zooKeeper.close();
     }
 
     @Override
