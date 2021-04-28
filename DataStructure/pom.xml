@@ -16,10 +16,7 @@
     <name>DataStructure</name>
     <url>https://www.nengli51.com</url>
     <dependencies>
-        <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-        </dependency>
+
     </dependencies>
 
     <build>
