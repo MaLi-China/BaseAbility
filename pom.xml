@@ -18,6 +18,8 @@
         <module>MyBatis_apply</module>
         <module>SpringMVC_apply</module>
         <module>SSM_apply</module>
+        <module>Spark_apply</module>
+        <module>Scala</module>
 
     </modules>
 
@@ -33,6 +35,9 @@
         <spring.version>5.2.0.RELEASE</spring.version>
         <spring.aop.version>1.8.7</spring.aop.version>
         <zookeeper.version>3.4.14</zookeeper.version>
+        <scala.version>2.11.12</scala.version>
+        <hadoop.version>2.7.3</hadoop.version>
+        <spark.version>2.1.1</spark.version>
 
     </properties>
 
@@ -63,7 +68,6 @@
                 <version>${sel4j.version}</version>
             </dependency>
 
-
             <!--            Spring Stack          -->
             <!-- spring-context -->
             <dependency>
@@ -77,11 +81,53 @@
                 <artifactId>aspectjweaver</artifactId>
                 <version>${spring.aop.version}</version>
             </dependency>
-            <!--  Zookeeper-->
+            <!--  Zookeeper -->
             <dependency>
                 <groupId>org.apache.zookeeper</groupId>
                 <artifactId>zookeeper</artifactId>
                 <version>${zookeeper.version}</version>
+            </dependency>
+
+            <!--  ============================================================  -->
+            <!-- hadoop-client -->
+            <dependency>
+                <groupId>org.apache.hadoop</groupId>
+                <artifactId>hadoop-client</artifactId>
+                <version>${hadoop.version}</version>
+            </dependency>
+
+
+            <!-- Spark Stack -->
+            <!-- scala-library -->
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-library</artifactId>
+                <version>${scala.version}</version>
+            </dependency>
+            <!-- scala-compiler -->
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-compiler</artifactId>
+                <version>${scala.version}</version>
+            </dependency>
+            <!-- scala-reflect -->
+            <dependency>
+                <groupId>org.scala-lang</groupId>
+                <artifactId>scala-reflect</artifactId>
+                <version>${scala.version}</version>
+            </dependency>
+
+            <!-- spark-core -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-core_2.11</artifactId>
+                <version>${spark.version}</version>
+            </dependency>
+            <!-- spark-sql -->
+            <dependency>
+                <groupId>org.apache.spark</groupId>
+                <artifactId>spark-sql_2.11</artifactId>
+                <version>${spark.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
