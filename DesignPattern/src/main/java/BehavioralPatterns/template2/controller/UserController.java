@@ -39,6 +39,6 @@ public class UserController {
         for (RegObserver observer : observers) {
             observer.handleRegSuccess(userId);
         }
-        return 0;
+        return userId;
     }
 }
