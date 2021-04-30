@@ -1,4 +1,4 @@
-package BehavioralPatterns.template1;
+package BehavioralPatterns.ObserverDesignPattern.template1;
 
 import org.junit.Test;
 

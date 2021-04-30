@@ -1,4 +1,4 @@
-package BehavioralPatterns.template1;
+package BehavioralPatterns.ObserverDesignPattern.template1;
 
 /**
  * 功能说明：具体的观察者实现A

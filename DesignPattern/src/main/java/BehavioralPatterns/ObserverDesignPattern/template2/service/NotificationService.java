@@ -1,4 +1,4 @@
-package BehavioralPatterns.template2.service;
+package BehavioralPatterns.ObserverDesignPattern.template2.service;
 
 /**
  * 功能说明：业务类 - 负责向用户发送通知

@@ -1,4 +1,4 @@
-package BehavioralPatterns.example1;
+package BehavioralPatterns.ObserverDesignPattern.example1;
 
 /**
  * 功能说明：模拟业务层代码

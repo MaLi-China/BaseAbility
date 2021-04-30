@@ -1,4 +1,4 @@
-package BehavioralPatterns.template2.service;
+package BehavioralPatterns.ObserverDesignPattern.template2.service;
 
 /**
  * 功能说明：模拟service层促销服务

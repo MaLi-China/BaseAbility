@@ -1,7 +1,7 @@
-package BehavioralPatterns.template2.observer.impl;
+package BehavioralPatterns.ObserverDesignPattern.template2.observer.impl;
 
-import BehavioralPatterns.template2.observer.RegObserver;
-import BehavioralPatterns.template2.service.NotificationService;
+import BehavioralPatterns.ObserverDesignPattern.template2.observer.RegObserver;
+import BehavioralPatterns.ObserverDesignPattern.template2.service.NotificationService;
 
 /**
  * 功能说明：观察者实现 - 负责通知
