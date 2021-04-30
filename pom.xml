@@ -20,6 +20,7 @@
         <module>SSM_apply</module>
         <module>Spark_apply</module>
         <module>Scala</module>
+        <module>DesignPattern</module>
 
     </modules>
 
@@ -88,7 +89,7 @@
                 <version>${zookeeper.version}</version>
             </dependency>
 
-            <!--  ============================================================  -->
+            <!--  ============================大数据生态================================  -->
             <!-- hadoop-client -->
             <dependency>
                 <groupId>org.apache.hadoop</groupId>
