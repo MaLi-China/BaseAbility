@@ -29,13 +29,13 @@ public class UserController {
     /**
      * 接收客户端调用, 执行注册业务
      *
-     * @param phonenum 电话号码
-     * @param password 密码
+     * @param telephone 电话号码
+     * @param password  密码
      * @return 注册成功的用户id
      */
-    public long register(String phonenum, String password) {
+    public long register(String telephone, String password) {
 
-        long userId = userService.register(phonenum, password);
+        long userId = userService.register(telephone, password);
         for (RegObserver observer : observers) {
             observer.handleRegSuccess(userId);
         }
