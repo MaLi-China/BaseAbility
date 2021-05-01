@@ -1,6 +1,6 @@
 package Framework.usage.controller;
 
-import BehavioralPatterns.ObserverDesignPattern.template2.observer.RegObserver;
+import BehavioralPattern.Observer.template2.observer.RegObserver;
 import Framework.usage.service.UserService;
 
 import java.util.ArrayList;

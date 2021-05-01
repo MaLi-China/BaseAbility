@@ -1,6 +1,6 @@
 package Framework.usage.observer.impl;
 
-import BehavioralPatterns.ObserverDesignPattern.template2.service.PromotionService;
+import BehavioralPattern.Observer.template2.service.PromotionService;
 import Framework.EventBus.Subscribe;
 import Framework.usage.observer.RegObserver;
 

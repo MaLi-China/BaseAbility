@@ -1,4 +1,4 @@
-package BehavioralPatterns.ObserverDesignPattern.template1;
+package BehavioralPattern.Observer.template1;
 
 /**
  * 功能说明：给观察者发送的通知

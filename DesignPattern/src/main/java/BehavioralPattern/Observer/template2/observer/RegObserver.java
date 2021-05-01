@@ -1,4 +1,4 @@
-package BehavioralPatterns.ObserverDesignPattern.template2.observer;
+package BehavioralPattern.Observer.template2.observer;
 
 /**
  * 功能说明：观察者接口

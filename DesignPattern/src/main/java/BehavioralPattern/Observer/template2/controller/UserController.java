@@ -1,7 +1,7 @@
-package BehavioralPatterns.ObserverDesignPattern.template2.controller;
+package BehavioralPattern.Observer.template2.controller;
 
-import BehavioralPatterns.ObserverDesignPattern.template2.observer.RegObserver;
-import BehavioralPatterns.ObserverDesignPattern.template2.service.UserService;
+import BehavioralPattern.Observer.template2.observer.RegObserver;
+import BehavioralPattern.Observer.template2.service.UserService;
 
 import java.util.ArrayList;
 import java.util.List;
