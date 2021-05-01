@@ -108,7 +108,5 @@ public class ZooKeeperAPI {
     /**
      * 测试zookeeper的watcher机制
      */
-    public void testWatcher() {
-        //TODO - Watch机制
-    }
+
 }

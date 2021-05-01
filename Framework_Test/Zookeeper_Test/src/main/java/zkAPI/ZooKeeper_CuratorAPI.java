@@ -2,6 +2,9 @@ package zkAPI;
 
 import org.apache.curator.framework.CuratorFramework;
 import org.apache.curator.framework.CuratorFrameworkFactory;
+import org.apache.curator.framework.recipes.cache.NodeCache;
+import org.apache.curator.framework.recipes.cache.NodeCacheListener;
+import org.apache.curator.framework.recipes.cache.PathChildrenCache;
 import org.apache.curator.retry.ExponentialBackoffRetry;
 import org.apache.zookeeper.CreateMode;
 import org.junit.Before;
@@ -45,5 +48,39 @@ public class ZooKeeper_CuratorAPI {
         //...
         // 关闭客户端
         client.close();
+    }
+
+    @Test
+    public void testNodeCache() {
+
+        try {
+            //1, 创建节点监听对象
+            NodeCache node_api = new NodeCache(client, "/node_api");
+            //2, 开始缓存
+            node_api.start(true);
+            //3, 添加监听对象
+            node_api.getListenable().addListener(new NodeCacheListener() {
+                @Override
+                public void nodeChanged() throws Exception {
+                    byte[] data = node_api.getCurrentData().getData();
+                    System.out.println("data: " + new String(data));
+                }
+            });
+//            System.in.read();
+            Thread.sleep(100000);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testPathChildrenCache() {
+        PathChildrenCache cache = new PathChildrenCache(client, "/node_api", true);
+        //启动时缓存子节点数据
+        try {
+            cache.start(PathChildrenCache.StartMode.POST_INITIALIZED_EVENT);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
