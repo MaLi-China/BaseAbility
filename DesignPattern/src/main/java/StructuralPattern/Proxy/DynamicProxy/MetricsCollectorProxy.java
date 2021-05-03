@@ -14,6 +14,8 @@ import java.lang.reflect.Proxy;
  */
 public class MetricsCollectorProxy {
     public IUserController createProxy(Object proxiedObject) {
+        // 对 proxiedObject 进行代理: 增强的内容为加入MetricsCollector
+        // 也可以直接在MetricsCollector中对proxiedObject进行增强
         MetricsCollector metricsCollector = new MetricsCollector();
         Class<?>[] interfaces = proxiedObject.getClass().getInterfaces();
         return (IUserController) Proxy.newProxyInstance(proxiedObject.getClass().getClassLoader(), interfaces,
