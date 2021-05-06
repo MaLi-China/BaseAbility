@@ -21,6 +21,7 @@
         <module>Spark_apply</module>
         <module>Scala</module>
         <module>DesignPattern</module>
+        <module>Concurrency</module>
 
     </modules>
 
