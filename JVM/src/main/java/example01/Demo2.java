@@ -1,10 +1,12 @@
 package example01;
 
-/**
- * 功能说明：测试系统参数
- * 开发人员：@Author MaLi
- * 开发日期：@Date  2021/5/7
- */
-public class Demo2 {
 
+public class Demo2 {
+    public static void main(String[] args) {
+        System.out.println(System.getProperty("name"));
+
+        for (String arg : args) {
+            System.out.println("-->" + arg);
+        }
+    }
 }
