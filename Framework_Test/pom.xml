@@ -12,6 +12,7 @@
 
     <modules>
         <module>Zookeeper_Test</module>
+        <module>mtools</module>
     </modules>
 
     <artifactId>Framework_Test</artifactId>

@@ -22,6 +22,7 @@
         <module>Scala</module>
         <module>DesignPattern</module>
         <module>Concurrency</module>
+        <module>JVM</module>
 
     </modules>
 
