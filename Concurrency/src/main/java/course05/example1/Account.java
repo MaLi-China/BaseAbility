@@ -9,7 +9,9 @@ public abstract class Account {
     public void transfer(Account target, long amt) {
     }
 
-    public void setBalance(int i) {
+//    public void setBalance(int i) {
+//
+//    }
 
-    }
+    public abstract void setBalance(long balance);
 }
