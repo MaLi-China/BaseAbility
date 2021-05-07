@@ -8,7 +8,7 @@ package course05.example3;
  * 开发日期：@Date  2021/5/7
  */
 public class Account {
-    public long balance;
+    private long balance;
 
     /**
      * (1)双synchronized保证线程安全: 保证同一时刻, 只能有一个线程操作两个线程的任意一个;
@@ -18,9 +18,11 @@ public class Account {
      * @param amt 转出金额
      */
     public void transfer(Account to, long amt) {
+        // 原理: 一次获取到锁, 才执行, 否则在这里阻塞;
         while (!Allocator.apply(this, to)) {
             break;
         }
+        // 原理: 能够执行到这里, 说明获取到了两把锁
         synchronized (this) {
             synchronized (to) {
                 try {
