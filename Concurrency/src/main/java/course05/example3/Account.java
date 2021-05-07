@@ -23,9 +23,12 @@ public class Account {
         }
         synchronized (this) {
             synchronized (to) {
-                this.balance -= amt;
-                to.balance += amt;
-                Allocator.free(this, to);
+                try {
+                    this.balance -= amt;
+                    to.balance += amt;
+                } finally {
+                    Allocator.free(this, to);
+                }
             }
         }
     }
