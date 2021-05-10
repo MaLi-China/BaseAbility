@@ -19,27 +19,37 @@ public class ProConModule<T> {
     }
 
     public synchronized void put(T t) {
-        while (size == maxSize) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        while (size <= maxSize) {
+            if (size == maxSize) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                queue.add(t);
+                notifyAll(); //通知所有等待队列内的线程(生产者, 消费者)开始工作
+                break;
             }
         }
-        queue.add(t);
-        notifyAll(); //通知所有等待队列内的线程(生产者, 消费者)开始工作
+
     }
 
     public synchronized T get() {
-        while (size == 0) {
-            try {
-                wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
+        T t = null;
+        while (size >= 0) {
+            if (size == 0) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            } else {
+                t = queue.get(0);
+                notifyAll(); //通知所有等待队列内的线程(生产者, 消费者)开始工作
+                break;
             }
         }
-        T t = queue.get(0);
-        notifyAll(); //通知所有等待队列内的线程(生产者, 消费者)开始工作
         return t;
     }
 }

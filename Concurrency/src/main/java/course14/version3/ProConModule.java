@@ -29,11 +29,15 @@ public class ProConModule<T> {
     public void put(T t) {
         lock.lock();
         try {
-            while (this.size == this.maxSize) {
-                notFullCondition.await();
+            while (this.size <= this.maxSize) {
+                if (this.size == this.maxSize) {
+                    notFullCondition.await();
+                } else {
+                    queue.add(t);
+                    notEmptyCondition.signal();
+                    break;
+                }
             }
-            queue.add(t);
-            notEmptyCondition.signalAll();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
@@ -45,10 +49,15 @@ public class ProConModule<T> {
         lock.lock();
         T t = null;
         try {
-            while (this.size == 0) {
-                notEmptyCondition.await();
+            while (this.size >= 0) {
+                if (this.size == 0) {
+                    notEmptyCondition.await();
+                } else {
+                    t = queue.get(0);
+                    notFullCondition.signal();
+                    break;
+                }
             }
-            t = queue.get(0);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
