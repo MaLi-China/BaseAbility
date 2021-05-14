@@ -23,6 +23,7 @@
         <module>DesignPattern</module>
         <module>Concurrency</module>
         <module>JVM</module>
+        <module>JavaIO</module>
 
     </modules>
 
