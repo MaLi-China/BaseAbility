@@ -1,4 +1,5 @@
 该文件为参数字典, 用于查询Kafka设置参数
+https://www.cnblogs.com/jun1019/p/6656223.html
 
 一、相关参数配置
 
