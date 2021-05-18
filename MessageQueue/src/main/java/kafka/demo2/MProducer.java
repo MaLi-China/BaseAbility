@@ -26,9 +26,8 @@ public class MProducer {
     @Test
     public void testProducer() {
         try (
-                KafkaProducer<String, String> producer = new KafkaProducer<>(producerProps);
+                KafkaProducer<String, String> producer = new KafkaProducer<>(producerProps)
         ) {
-//            producer = new KafkaProducer<>(producerProps);
             String topic = "mtopic";
             for (int i = 0; i < 10; i++) {
                 producer.send(new ProducerRecord<>(topic, "msg"));
