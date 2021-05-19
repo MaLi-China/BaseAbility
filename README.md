@@ -11,3 +11,6 @@
 ### 并发编程
 
 [并发编程](https://github.com/MaLi-China/BaseAbility/tree/main/Concurrency)
+
+### 消息队列
+[消息队列](https://github.com/MaLi-China/BaseAbility/tree/main/MessageQueue)
