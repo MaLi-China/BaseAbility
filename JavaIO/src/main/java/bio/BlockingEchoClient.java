@@ -1,7 +1,7 @@
 package bio;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class BlockingEchoClient {
     private static int DEFAULT_PORT = 8888;
 
     public static void main(String[] args) {
-        Logger logger = LoggerFactory.getLogger(BlockingEchoClient.class);
+        //Logger logger = LoggerFactory.getLogger(BlockingEchoClient.class);
         int port;
         String hostname;
         if (args.length != 2) {
@@ -54,7 +54,7 @@ public class BlockingEchoClient {
                 System.out.println("来自EchoServer的Msg: " + socketIn.readLine());
             }
         } catch (IOException e) {
-            logger.error("Client启动异常:", e);
+            //logger.error("Client启动异常:", e);
         }
     }
 }

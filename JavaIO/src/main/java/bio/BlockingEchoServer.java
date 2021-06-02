@@ -23,7 +23,7 @@ public class BlockingEchoServer {
             port = Integer.parseInt(args[0]);
         } catch (RuntimeException e) {
             port = DEFAULT_PORT;
-            System.out.println("...");
+            System.out.println("端口参数输入存在问题, 以默认端口号: 8888启动服务器.");
         }
         ServerSocket serverSocket = null;
         try {
@@ -31,6 +31,7 @@ public class BlockingEchoServer {
             serverSocket = new ServerSocket(port);
             System.out.println("启动成功...");
         } catch (IOException e) {
+            System.out.println("启动异常...");
             e.printStackTrace();
         }
         try (
