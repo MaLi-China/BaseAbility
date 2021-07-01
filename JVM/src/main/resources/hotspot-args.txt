@@ -5,13 +5,40 @@ HotSpot虚拟机配置参数
 
 实战内存溢出
 1, 堆内存溢出
-    (1)设置堆内存; (2)不断增加对象数量(保持和GCRoot之间的可达路径)
+    (1)设置堆内存空间大小, 设置为不扩展; (2)不断增加对象数量(保持和GCRoot之间的可达路径)
     (3)Dump出内存溢出时, 内存快照
     参数设置:
-    -Xms20m -Xmx20m -XX:+HeapDumpOnOutofMemoryError
+    -Xms20m -Xmx20m -XX:+HeapDumpOnOutOfMemoryError
+
+    解决对内存溢出的方法:
+    根据dump出来的日志, 分析是内存溢出还是内存泄露
+    (1)内存泄露, 根据日志定位泄露的位置
+    (2)内存溢出, 设置更合适的对内存
 
 2, 虚拟机栈和本地方法栈溢出
-
+    参数设置:
+    -Xss128k
 3, 方法区, 运行时常量池溢出
+    JDK6中, 方法区设置在永久区中
+    -XX：PermSize和-XX：MaxPermSize可以间接设置方法区的大小
+
+    JDK7 运行时常量池存放在堆中
+    JDK 7中-XX：MaxPermSize参数
+
+    JDK8 方法区
+    在JDK 8及以上版本使用-XX：MaxMeta-spaceSize参数
+
+
+    方法区的内存溢出试验
+    永久代实现: jdk7及之前
+    -XX:PermSize=10M -XX:MaxPermSize=10M
+    metaspace实现: jdk8及之后
+    -XX：MaxMetaspaceSize: 元空间最大值, 默认是-1, 即不限制, 或者说只受限与本地内存大小
+    -XX：MetaspaceSize: 指定元空间的初始空间大小, 达到这个值就触发垃圾收集; 同时会对该值进行动态调整
+    -XX：MinMetaspaceFreeRatio: 垃圾收集之后控制最小的元空间剩余百分比
+    -XX：Max-MetaspaceFreeRatio
 
 4, 本机直接内存溢出
+
+    -XX：MaxDirectMemorySize
+    如果不指定, 默认与Java堆的最大值一致: -Xmx

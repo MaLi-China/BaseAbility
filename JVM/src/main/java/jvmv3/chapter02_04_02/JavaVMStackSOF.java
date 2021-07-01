@@ -7,7 +7,7 @@ package jvmv3.chapter02_04_02;
  * 开发人员：@Author MaLi
  */
 public class JavaVMStackSOF {
-    private int stackLength = 1;
+    private static int stackLength = 1;
 
     public void stackLeak() {
         stackLength++;
@@ -19,6 +19,7 @@ public class JavaVMStackSOF {
         try {
             oom.stackLeak();
         } catch (Throwable e) {
+            System.out.println("stackLength:" + stackLength);
             System.out.println("stack length:" + oom.stackLength);
             throw e;
         }

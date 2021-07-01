@@ -41,6 +41,7 @@
         <commons-lang3.version>3.5</commons-lang3.version>
         <guava.version>30.1.1-jre</guava.version>
         <lombok.version>1.18.20</lombok.version>
+        <cglib.version>3.3.0</cglib.version>
 
         <netty.version>4.1.51.Final</netty.version>
         <jedis.version>3.2.0</jedis.version>
@@ -104,6 +105,12 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+            </dependency>
+            <!-- cglib/cglib -->
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>${cglib.version}</version>
             </dependency>
 
 
@@ -238,7 +245,6 @@
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
         </dependency>
-
         <!-- 代码辅助-->
         <dependency>
             <groupId>org.projectlombok</groupId>
