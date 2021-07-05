@@ -24,6 +24,6 @@ public class ReferenceCountingGC {
         }
         objA = null;
         objB = null;
-//        System.gc();
+        System.gc();
     }
 }

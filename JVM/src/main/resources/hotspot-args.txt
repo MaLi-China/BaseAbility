@@ -42,3 +42,24 @@ HotSpot虚拟机配置参数
 
     -XX：MaxDirectMemorySize
     如果不指定, 默认与Java堆的最大值一致: -Xmx
+
+
+
+打印GC日志
+-XX:+PrintGCDetails
+
+[GC (System.gc()) [PSYoungGen: 8032K->808K(56832K)] 8032K->816K(186880K), 0.0022120 secs] [Times: user=0.00 sys=0.00, real=0.00 secs]
+[Full GC (System.gc())
+    [PSYoungGen: 808K->0K(56832K)]
+    [ParOldGen: 8K->644K(130048K)] 816K->644K(186880K),
+    [Metaspace: 3276K->3276K(1056768K)], 0.0053851 secs]
+    [Times: user=0.00 sys=0.00, real=0.00 secs]
+Heap
+ PSYoungGen      total 56832K, used 1474K [0x0000000780c00000, 0x0000000784b00000, 0x00000007c0000000)
+  eden space 49152K, 3% used [0x0000000780c00000,0x0000000780d70bc8,0x0000000783c00000)
+  from space 7680K, 0% used [0x0000000783c00000,0x0000000783c00000,0x0000000784380000)
+  to   space 7680K, 0% used [0x0000000784380000,0x0000000784380000,0x0000000784b00000)
+ ParOldGen       total 130048K, used 644K [0x0000000702400000, 0x000000070a300000, 0x0000000780c00000)
+  object space 130048K, 0% used [0x0000000702400000,0x00000007024a13c8,0x000000070a300000)
+ Metaspace       used 3288K, capacity 4496K, committed 4864K, reserved 1056768K
+  class space    used 357K, capacity 388K, committed 512K, reserved 1048576K
