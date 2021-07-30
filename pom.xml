@@ -26,6 +26,7 @@
         <module>JavaIO</module>
         <module>MessageQueue</module>
         <module>Buffer</module>
+        <module>JavaBase</module>
 
     </modules>
 
