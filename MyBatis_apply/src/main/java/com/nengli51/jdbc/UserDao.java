@@ -19,7 +19,7 @@ public class UserDao {
         ResultSet resultSet = null;
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8&useSSL=false;", "root", "root");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8&useSSL=false; ", "root", "root");
 
             preparedStatement = connection.prepareStatement("select * from user where uid=? ");
 

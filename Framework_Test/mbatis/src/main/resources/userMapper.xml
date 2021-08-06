@@ -1,0 +1,5 @@
+<actions>
+    <select>
+        select * from user;
+    </select>
+</actions>
