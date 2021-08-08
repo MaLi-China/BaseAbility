@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <parent name="Jack" age="18">
+        <son name="Tom Brown">Tom1</son>
+        <son name="Tom Brown">Tom2</son>
+        <son name="Tom Brown">Tom3</son>
+        <son name="Tom Brown">Tom4</son>
+    </parent>
+    <son>
+        <sonson>sonsonNodeText</sonson>
+        <sonson2>sonson2NodeText</sonson2>
+    </son>
+</root>

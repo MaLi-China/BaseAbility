@@ -1,11 +1,10 @@
 <configurations>
     <datasource>
-        <property name="dirver">com.mysql.jdbc.Driver</property>
+        <property name="driver">com.mysql.jdbc.Driver</property>
         <property name="url">jdbc:mysql://localhost:3306/mybatis</property>
         <property name="username">root</property>
         <property name="password">root</property>
     </datasource>
-    <mappers>
-
-    </mappers>
+    <mapper resource="userMapper.xml"></mapper>
+    <mapper resource="productMapper.xml"></mapper>
 </configurations>

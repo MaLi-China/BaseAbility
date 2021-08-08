@@ -1,0 +1,8 @@
+<root>
+    <parent name="Jack" age="18">
+        <son name="Tom Brown">Tom1</son>
+        <son name="Tom Brown">Tom2</son>
+        <son name="Tom Brown">Tom3</son>
+        <son name="Tom Brown">Tom4</son>
+    </parent>
+</root>

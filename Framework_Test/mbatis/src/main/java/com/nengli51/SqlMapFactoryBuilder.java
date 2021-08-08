@@ -5,6 +5,7 @@ import com.nengli51.io.Resources;
 import com.nengli51.pojo.Configuration;
 import org.dom4j.DocumentException;
 
+import java.beans.PropertyVetoException;
 import java.io.InputStream;
 
 /**
@@ -12,9 +13,10 @@ import java.io.InputStream;
  * 开发人员：@Author MaLi
  */
 public class SqlMapFactoryBuilder {
-    public SqlMapFactory build(String path) throws DocumentException {
+    public SqlMapFactory build(String path) throws DocumentException, PropertyVetoException {
         InputStream inputStream = Resources.loadConfig(path);
-        Configuration configuration = XMLConfigBuilder.parse(inputStream);
+        Configuration configuration = new XMLConfigBuilder().parseMainConfig(inputStream);
+
         return null;
     }
 }

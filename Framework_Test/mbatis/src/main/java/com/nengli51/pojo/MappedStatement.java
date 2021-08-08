@@ -5,17 +5,17 @@ package com.nengli51.pojo;
  * 开发人员：@Author MaLi
  */
 public class MappedStatement {
-    private String namespace;
+    private String sqlId;
     private String resultType;
     private String paramterType;
     private String sql;
 
-    public String getNamespace() {
-        return namespace;
+    public String getSqlId() {
+        return sqlId;
     }
 
-    public void setNamespace(String namespace) {
-        this.namespace = namespace;
+    public void setSqlId(String sqlId) {
+        this.sqlId = sqlId;
     }
 
     public String getResultType() {
@@ -40,5 +40,15 @@ public class MappedStatement {
 
     public void setSql(String sql) {
         this.sql = sql;
+    }
+
+    @Override
+    public String toString() {
+        return "MappedStatement{" +
+                "sqlId='" + sqlId + '\'' +
+                ", resultType='" + resultType + '\'' +
+                ", paramterType='" + paramterType + '\'' +
+                ", sql='" + sql + '\'' +
+                '}';
     }
 }

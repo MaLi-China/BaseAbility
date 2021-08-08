@@ -1,5 +1,21 @@
-<actions>
-    <select>
+<mapper namespace="userMapper">
+    <select id="1" resultType="" parameterType="">
         select * from user;
     </select>
-</actions>
+
+    <select id="2" resultType="" parameterType="">
+        select * from user where id=#{id};
+    </select>
+
+    <delete id="3">
+        delete form user where id=#{id}
+    </delete>
+
+    <update id="4">
+        update user set name=#{name} where id=#{id}
+    </update>
+
+    <insert id="5">
+        insert into user values (#{id},#{name},#{age})
+    </insert>
+</mapper>
