@@ -8,7 +8,8 @@
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8"/>
+                <property name="url"
+                          value="jdbc:mysql://localhost:3306/mybatis?characterEncoding=utf-8&amp;useSSL=false"/>
                 <property name="username" value="root"/>
                 <property name="password" value="root"/>
             </dataSource>
@@ -16,6 +17,6 @@
     </environments>
 
     <mappers>
-        <mapper resource="com/nengli51/mapper/NewsMapper.xml"></mapper>
+        <mapper resource="com/nengli51/mapper/UserDao.xml"/>
     </mappers>
 </configuration>
