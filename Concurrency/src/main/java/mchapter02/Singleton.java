@@ -5,7 +5,6 @@ package mchapter02;
  * 开发人员：@Author MaLi
  */
 public class Singleton {
-    private String username;
     //饿汉式
 //    private static Singleton instance = new Singleton();
     //懒汉式
@@ -37,7 +36,7 @@ public class Singleton {
         return instance;
     }
 
-    public static Singleton getInstance3(String username) {
+    public static Singleton getInstance3() {
         //双重检查锁机制, 改进性能: 如果instance已经被创建过, 直接跳过该if代码块
         if (instance == null) {
             // 逻辑问题: 如果instance没有创建, 多个线程同时进入该代码块, 最后会创建多个实例出来
@@ -45,7 +44,6 @@ public class Singleton {
                 //重新进行一次非空判断, 其它线程获取到锁后,发现instance已经创建, 直接返回了.
                 if (instance == null) {
                     instance = new Singleton();
-                    instance.username = username;
                 }
             }
         }
