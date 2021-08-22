@@ -27,6 +27,14 @@ class Father {
 }
 
 class Son extends Father {
+
+    @Override
+    public synchronized void method1() {
+        System.out.println("Son method1");
+        System.out.println("CurrentThread(Son): " + Thread.currentThread().getName());
+        super.method1();
+    }
+
     public synchronized void method2() {
         System.out.println("method2 enter");
         this.method1();
@@ -38,6 +46,11 @@ class Son extends Father {
         String name = Thread.currentThread().getName();
         System.out.println("ThreadName:" + name + " --> " + "method2");
 
+    }
+
+    public static void main(String[] args) {
+        Son son = new Son();
+        son.method1();
     }
 }
 
