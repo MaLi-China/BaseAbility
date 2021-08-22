@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
  * 答: 在使用上更加灵活, 不一定在子线程Thread[i]执行结束完成之后, 被等待的线程才执行; join做不到在任意位置countDown().
  * 开发人员：@Author MaLi
  */
-public class Test_CountDownLatch {
+public class Test3_CountDownLatch {
     public static void main(String[] args) {
 
         usingCountDownLatch();
