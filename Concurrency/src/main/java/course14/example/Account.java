@@ -1,5 +1,7 @@
 package course14.example;
 
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -22,23 +24,34 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Account {
     private final ReentrantLock rtl = new ReentrantLock();
     private long balance = 0;
+    private int i;
 
+    /**
+     * 虽然没有死锁问题, 但是如果使用tryLock()的话, 会存在活锁问题, 因为两个线程都在谦让.
+     * 解决问题的办法: 加随机数
+     */
     public void transfer(Account target, long amt) {
+        Random random = new Random();
+
         while (true) {
-            if (this.rtl.tryLock()) {
-                try {
-                    if (target.rtl.tryLock()) {
-                        try {
-                            this.balance -= amt;
-                            target.balance += amt;
-                        } finally {
-                            target.rtl.unlock();
+            try {
+                if (this.rtl.tryLock(random.nextInt(1000), TimeUnit.MILLISECONDS)) {//如果成功获取到锁, 返回true   改行代码, 可能两个线程都获取到了
+                    try {
+                        if (target.rtl.tryLock(random.nextInt(1000), TimeUnit.MILLISECONDS)) {
+                            try {
+                                this.balance -= amt;
+                                target.balance += amt;
+                            } finally {
+                                target.rtl.unlock();
+                            }
                         }
+                    } finally {
+                        this.rtl.unlock();
                     }
-                } finally {
-                    this.rtl.unlock();
+                    break;
                 }
-                break;
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
         }
     }
