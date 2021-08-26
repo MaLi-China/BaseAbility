@@ -8,7 +8,6 @@ import java.util.function.Function;
 /**
  * 功能说明：限流器实现 - 信号量实现
  * 开发人员：@Author MaLi
- * 开发日期：@Date  2021/5/10
  */
 public class ObjectPool<T, R> {
     public final int size;
