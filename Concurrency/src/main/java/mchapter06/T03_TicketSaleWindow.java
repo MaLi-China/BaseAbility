@@ -41,8 +41,7 @@ public class T03_TicketSaleWindow implements Runnable {
         }
     }
 
-    public static void main(String[] args) {
-        T03_TicketSaleWindow ticketSaleWindow = new T03_TicketSaleWindow(100, 10);
+    private void startSale(T03_TicketSaleWindow ticketSaleWindow) {
         ArrayList<Thread> windows = new ArrayList<>();
         for (int i = 0; i < ticketSaleWindow.windowAmount; i++) {
             Thread window = new Thread(ticketSaleWindow);
@@ -58,5 +57,10 @@ public class T03_TicketSaleWindow implements Runnable {
                 e.printStackTrace();
             }
         }
+    }
+
+    public static void main(String[] args) {
+        T03_TicketSaleWindow ticketSaleWindow = new T03_TicketSaleWindow(100, 10);
+        ticketSaleWindow.startSale(ticketSaleWindow);
     }
 }
