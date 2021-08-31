@@ -5,11 +5,11 @@ import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.TimeUnit;
 
 /**
- * 功能说明：使用更高效的ConcurrentQueue
+ * 功能说明：使用更高效的ConcurrentLinkedDeque
  * 开发人员：@Author MaLi
  */
 public class T04_TicketSalWindow {
-    private Queue<String> tickets = new ConcurrentLinkedDeque<>();
+    private Queue<String> tickets = new ConcurrentLinkedDeque<>(); // 使用队列实现售票模拟
     private int ticketAmount;
     private int windowAmount;
 
