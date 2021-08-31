@@ -56,7 +56,6 @@ public class T02_TicketSaleWindow implements Runnable {
         }
         for (Thread window : windows) {
             window.start();
-
         }
         for (Thread window : windows) {
             try {
