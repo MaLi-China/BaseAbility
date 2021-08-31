@@ -1,7 +1,5 @@
 package mchapter05;
 
-import sun.misc.Unsafe;
-
 import java.lang.ref.SoftReference;
 import java.util.concurrent.TimeUnit;
 
@@ -25,6 +23,5 @@ public class T03_SoftReference {
         byte[] barray = new byte[1024 * 1024 * 1000];
 
         System.out.println(reference.get());
-        Unsafe.getUnsafe().
     }
 }
