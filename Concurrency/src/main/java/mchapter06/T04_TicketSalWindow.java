@@ -16,7 +16,7 @@ public class T04_TicketSalWindow {
     public T04_TicketSalWindow(int ticketAmount, int windowAmount) {
         this.ticketAmount = ticketAmount;
         this.windowAmount = windowAmount;
-        for (int i = 0; i < ticketAmount; i++) {
+        for (int i = 0; i < this.ticketAmount; i++) {
             tickets.offer("TicketNo: " + i);
         }
     }
