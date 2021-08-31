@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * 功能说明：对各种Map做性能测试
  * 开发人员：@Author MaLi
  */
-public class T01_Hashtable {
+public class T01_TestMaps {
     //准备2个数组: keys, values作为测试用例
     private static UUID[] keys = new UUID[Constant.LENGTH];
     private static UUID[] values = new UUID[Constant.LENGTH];
@@ -128,7 +128,7 @@ public class T01_Hashtable {
 
         @Override
         public void run() {
-            for (int i = 0; i < 100000; i++) {
+            for (int i = 0; i < 1000000; i++) {
                 map.get(keys[random.nextInt(Constant.LENGTH)]);
             }
         }
