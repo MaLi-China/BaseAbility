@@ -6,7 +6,7 @@ package DP01_Singleton;
  * 开发人员：@author MaLi
  */
 public class Singleton02 {
-    private static Singleton02 instance;
+    private static volatile Singleton02 instance;
 
     private Singleton02() {
 
