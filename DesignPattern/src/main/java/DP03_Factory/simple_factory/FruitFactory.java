@@ -2,6 +2,7 @@ package DP03_Factory.simple_factory;
 
 /**
  * 功能说明：简单工厂
+ * 问题: 每添加一种新的接口实现, 就要改动该工厂类, 不符合开闭原则.
  * 存在意义: 任意定制接口的实现
  * 开发人员：@author MaLi
  */
