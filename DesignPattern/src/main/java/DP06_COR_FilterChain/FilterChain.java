@@ -18,10 +18,12 @@ public class FilterChain implements Filter {
     @Override
     public boolean doFilter(Request request, Response response, FilterChain chain) {
         for (Filter filter : filters) {
+            // 集合中Filter已经到头, 返回
             if (filters.size() == index) {
                 return false;
             }
-            filters.get(index++).doFilter(request, response, chain);//在第二个开始, 依次调用Filter
+            // 在第一个Filter开始, 依次调用Filter
+            filters.get(index++).doFilter(request, response, chain);
         }
         return true;
     }
