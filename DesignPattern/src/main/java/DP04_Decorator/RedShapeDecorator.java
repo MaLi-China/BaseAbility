@@ -5,8 +5,8 @@ package DP04_Decorator;
  * 开发人员：@author MaLi
  */
 public class RedShapeDecorator extends ShapeDecorator {
-    public RedShapeDecorator(Shape decoratedShap) {
-        super(decoratedShap);
+    public RedShapeDecorator(Shape decoratedShape) {
+        super(decoratedShape);
     }
 
     @Override
