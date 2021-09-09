@@ -10,6 +10,7 @@ public class RegPromotionObserver implements IRegObserver {
     @Override
     public void handleRegSuccess(long userId) {
         //处理行为
+        // 这里有问题: 频繁的创建线程, 耗时, 其次, 可能导致堆栈溢出.  (这里只用来说明问题, 实际生产不能这样使用.)
         new Thread(() -> promotionService.issueNewUserExperienceCash(userId), "Thread_RegPromotionObserver").start();
     }
 }
