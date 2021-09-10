@@ -1,4 +1,4 @@
-package DP01_Singleton;
+package DP01_Singleton.base;
 
 /**
  * 功能说明：使用内部类的方式, JVM保证Class只被加载一次, 同时保证线程安全

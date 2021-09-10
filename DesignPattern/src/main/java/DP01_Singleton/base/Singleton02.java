@@ -1,4 +1,4 @@
-package DP01_Singleton;
+package DP01_Singleton.base;
 
 /**
  * 功能说明：懒汉式
