@@ -13,6 +13,7 @@ import DP03_Factory.base.XmlConfigParserImpl;
  * 开发人员：@author MaLi
  */
 public class ConfigParserFactory {
+    //把noFactory里面的获取解析器代码部分, 原封不动拆分到独立的工厂类里面
     public IConfigParser getConfigParser(String ruleConfigFilePath) {
         String fileExtention = getFileExtention(ruleConfigFilePath);
         // 复杂的对象创建过程 -- 这种创建对象的代码和使用对象, 并没有关系
