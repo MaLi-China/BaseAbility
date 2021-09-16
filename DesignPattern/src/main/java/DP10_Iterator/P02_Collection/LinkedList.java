@@ -6,18 +6,19 @@ package DP10_Iterator.P02_Collection;
  */
 public class LinkedList implements Collection_ {
     private Node head = null;
-    private Node tail = head;
+    private Node tail = null;
     private int index = 0;
 
     @Override
     public void add(Node o) {
         if (index == 0) {
             head = o;
+            tail = head;
         } else {
             tail.setNext(o);
-            tail = o;
-            index++;
+            tail = tail.getNext();
         }
+        index++;
     }
 
     @Override
@@ -27,7 +28,7 @@ public class LinkedList implements Collection_ {
 
     @Override
     public Iterator_ iterator() {
-        return null;
+        return new LinkedListIterator();
     }
 
     private class LinkedListIterator implements Iterator_ {
@@ -36,7 +37,7 @@ public class LinkedList implements Collection_ {
 
         @Override
         public boolean hasNext() {
-            return index < currentIndex;
+            return currentIndex < index;
         }
 
         @Override
@@ -48,6 +49,18 @@ public class LinkedList implements Collection_ {
             }
             currentIndex++;
             return currentNode;
+        }
+    }
+
+    public static void main(String[] args) {
+        LinkedList linkedList = new LinkedList();
+        linkedList.add(new Node("Node1"));
+        linkedList.add(new Node("Node2"));
+        System.out.println(linkedList.size());
+        Iterator_ iterator = linkedList.iterator();
+        while (iterator.hasNext()) {
+            Object next = iterator.next();
+            System.out.println(next);
         }
     }
 }

@@ -8,6 +8,10 @@ public class Node {
     private Object content;
     private Node next;
 
+    public Node(Object content) {
+        this.content = content;
+    }
+
     public Object getContent() {
         return content;
     }
@@ -22,5 +26,13 @@ public class Node {
 
     public void setNext(Node next) {
         this.next = next;
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "content=" + content +
+                ", next=" + next +
+                '}';
     }
 }
