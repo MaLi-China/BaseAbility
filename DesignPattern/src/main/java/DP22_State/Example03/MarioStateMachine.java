@@ -10,13 +10,14 @@ public class MarioStateMachine {
     private int score;
     private State currentState;
     //这些数据可以配置在文件里
+    //通过event和state索引作为数组角标进行索引State
     private static final State[][] transactionTable = {
             {SUPER, CAPE, FIRE, SMALL},
             {SUPER, CAPE, FIRE, SMALL},
             {CAPE, CAPE, CAPE, SMALL},
             {FIRE, FIRE, FIRE, SMALL}
     };
-
+    //通过event和state索引作为数组角标进行索引score
     private static final int[][] actionTable = {
             {+100, +200, +300, +0},
             {+0, +200, +300, -100},
