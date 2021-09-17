@@ -26,7 +26,7 @@ public class MarioStateMachine {
 
     public MarioStateMachine() {
         this.score = 0;
-        this.currentState = SMALL;
+        this.currentState = State.SMALL;
     }
 
     public void obtainMushRoom() {
