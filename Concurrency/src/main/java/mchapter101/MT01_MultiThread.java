@@ -10,9 +10,9 @@ import java.util.Random;
  * 开发人员：@author MaLi
  */
 public class MT01_MultiThread {
-    private static double[] nums = new double[1_0000_0000];
-    private static Random random = new Random();
-    private static DecimalFormat format = new DecimalFormat("0.00");
+    private static final double[] nums = new double[1_0000_0000];
+    private static final Random random = new Random();
+    private static final DecimalFormat format = new DecimalFormat("0.00");
 
     static {
         for (int i = 0; i < nums.length; i++) {
@@ -58,7 +58,6 @@ public class MT01_MultiThread {
         }
         for (int i = 0; i < threadNums; i++) {
             threads[i].start();
-
         }
         for (int i = 0; i < threadNums; i++) {
             try {
