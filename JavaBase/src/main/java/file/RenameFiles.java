@@ -18,4 +18,7 @@ public class RenameFiles {
             file.renameTo(new File(newName));
         }
     }
+
+    public static void main(String[] args) {
+    }
 }
