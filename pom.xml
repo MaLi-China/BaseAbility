@@ -2,11 +2,15 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <!--model版本-->
     <modelVersion>4.0.0</modelVersion>
-
+    <!--公司或组织的唯一标识, 打包生成的jar包放本地路径也是这里-->
     <groupId>com.nengli51</groupId>
+    <!--项目唯一ID-->
     <artifactId>BaseAbility</artifactId>
+    <!--项目版本号-->
     <version>1.0-SNAPSHOT</version>
+    <!--打包机制: pom, jar, maven-plugin, ejb, war, ear, rar, par, 默认为jar-->
     <packaging>pom</packaging>
 
     <!-- 聚合子module -->
@@ -27,6 +31,7 @@
         <module>MessageQueue</module>
         <module>Buffer</module>
         <module>JavaBase</module>
+        <module>MBatis</module>
 
     </modules>
 
@@ -261,6 +266,27 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+
+    <!--项目的依赖关系
+    <dependency>
+
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <version>${lombok.version}</version>
+        maven认为，程序对外部的依赖会随着程序的所处阶段和应用场景而变化，所以maven中的依赖关系有作用域(scope)的限制。
+        scope包含如下的取值：
+            compile（编译范围）
+            provided（已提供范围）
+            runtime（运行时范围）
+            test（测试范围）
+            system（系统范围）
+        <scope>provided</scope>
+        设置指依赖是否可选，默认为false,即子项目默认都继承:为true,则子项目必需显示的引入，与dependencyManagement里定义的依赖类似
+        <optional>false</optional>
+
+    </dependency>
+    -->
 
     <!-- 实际依赖: 基础公共 -->
     <dependencies>
