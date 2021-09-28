@@ -2,11 +2,10 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.nengli51.mapper.NewsMapper">
-    <select id="findUser" resultType="com.nengli51.domain.News">
+<mapper namespace="com.nengli51.mapper.UserMapper">
+    <select id="findAll" resultType="user">
         select *
-        from news_inf
-        where news_id = #{news_id}
+        from user
     </select>
 
 </mapper>
