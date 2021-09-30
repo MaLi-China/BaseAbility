@@ -13,7 +13,7 @@
     <modules>
         <module>Zookeeper_Test</module>
         <module>mtools</module>
-        <module>mbatis</module>
+        <module>mbatis_test</module>
     </modules>
 
     <artifactId>Framework_Test</artifactId>
