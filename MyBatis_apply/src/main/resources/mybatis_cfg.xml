@@ -21,7 +21,7 @@
     </environments>
 
     <mappers>
-        <mapper resource="UserMapper.xml"/>
-        <!--<package name="com.nengli51.mapper"/>-->
+        <!--        <mapper resource="UserMapper.xml"/>-->
+        <package name="com.nengli51.mapper"/>
     </mappers>
 </configuration>
