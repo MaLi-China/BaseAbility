@@ -1,4 +1,4 @@
-package com.nengli51;
+package com.nengli51.sqlSession;
 
 /**
  * 功能说明：
