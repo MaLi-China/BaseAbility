@@ -34,7 +34,7 @@ public class MainTest {
     }
 
     @After
-    public void finaly() {
+    public void end() {
         sqlSession.commit();
         sqlSession.close();
     }
