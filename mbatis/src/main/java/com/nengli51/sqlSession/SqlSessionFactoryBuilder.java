@@ -4,28 +4,18 @@ import com.nengli51.config.Configuration;
 import com.nengli51.config.MainConfigXMLParser;
 import org.dom4j.DocumentException;
 
-import java.beans.PropertyVetoException;
 import java.io.InputStream;
 
 /**
- * 功能说明：Be used to analysis configuration files and build SqlSessionFactory
+ * 功能说明：
  * 开发人员：@author MaLi
  */
 public class SqlSessionFactoryBuilder {
-
-    /**
-     * 1, analysis configuration files
-     * 2, build a SqlSessionFactory
-     *
-     * @param mainConfigInputStream Main configuration file's inputstream
-     * @return SqlSessionFactory
-     */
-    public SqlSessionFactory build(InputStream mainConfigInputStream) throws DocumentException, PropertyVetoException {
-        //1, analysis configuration files
-        Configuration configuration = new Configuration();
-        configuration.setDataSource(MainConfigXMLParser.parse(mainConfigInputStream));
-
-        //2, build SqlSesssionFactory
-        return new DefaultSqlSessionFactory(configuration);
+    public SqlSessionFactory build(InputStream inputStream) throws DocumentException {
+        //1, 解析配置文件
+        Configuration mainConfig = MainConfigXMLParser.parse(inputStream);
+        //2, 创建SqlSessionFactory的实现类
+        SqlSessionFactory sessionFactory = new DefaultSqlSessionFactory(mainConfig);
+        return sessionFactory;
     }
 }

@@ -6,42 +6,56 @@ import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
-import javax.sql.DataSource;
 import java.beans.PropertyVetoException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Properties;
 
 /**
- * 功能说明：used to parsing main configuration file
+ * 功能说明：Used to parse MainConfig.xml
  * 开发人员：@author MaLi
  */
 public class MainConfigXMLParser {
     /**
-     * parse the MainConfigurationFile, package the attributes into DataSource
+     * parse mainconfig.xml
      *
-     * @param mainConfigInputStream represent the inputStream of MainConfigurationFile
-     * @return DataSource
-     * @throws DocumentException     Document parsing Exception
-     * @throws PropertyVetoException Property attribute Exception
+     * @param inputStream InputStream
+     * @return Configuration
      */
-    public static DataSource parse(InputStream mainConfigInputStream) throws DocumentException, PropertyVetoException {
+    public static Configuration parse(InputStream inputStream) throws DocumentException {
+
+        //Step1: parse Main Confinguration File
         SAXReader reader = new SAXReader();
-        Document document = reader.read(mainConfigInputStream);
+        Document document = reader.read(inputStream);
         Element rootElement = document.getRootElement();
-        List<Element> properties = rootElement.selectNodes("//property");
-        Properties prop = new Properties();
-        for (Element property : properties) {
-            String name = property.attribute("name").getValue();
-            String value = property.attribute("value").getValue();
-            prop.setProperty(name, value);
+        List<Element> propertyList = rootElement.selectNodes("//property");
+        Properties tmpProperties = new Properties();
+        for (Element element : propertyList) {
+            String propName = element.attribute("name").getValue();
+            String propValue = element.attribute("value").getValue();
+            tmpProperties.setProperty(propName, propValue);
         }
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
-        dataSource.setDriverClass(prop.getProperty("driver"));
-        dataSource.setJdbcUrl(prop.getProperty("url"));
-        dataSource.setUser(prop.getProperty("username"));
-        dataSource.setPassword(prop.getProperty("password"));
-        // ** parse MapperStatementXmlFile
-        return dataSource;
+        Configuration configuration = new Configuration();
+        try {
+            dataSource.setDriverClass(tmpProperties.getProperty("driver"));
+            dataSource.setJdbcUrl(tmpProperties.getProperty("url"));
+            dataSource.setUser(tmpProperties.getProperty("username"));
+            dataSource.setPassword(tmpProperties.getProperty("password"));
+            configuration.setDataSource(dataSource);
+
+            //Step2: parse Mapper Files
+            //<mapper resource="UserMapper.xml"/>
+            List<Element> mapperList = rootElement.selectNodes("//mapper");
+            for (Element element : mapperList) {
+                String mapperFile = element.attribute("resource").getValue();
+
+                //Step3: 解析Mapper映射文件, 并保存到configuration中
+                MapperXMLParser.parse(mapperFile, configuration);
+            }
+        } catch (PropertyVetoException e) {
+            e.printStackTrace();
+        }
+        return configuration;
     }
 }
