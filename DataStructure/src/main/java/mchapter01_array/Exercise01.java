@@ -83,7 +83,5 @@ public class Exercise01 {
             System.arraycopy(container, 0, newContainer, 0, size - 1);
             return newContainer;
         }
-
-
     }
 }
