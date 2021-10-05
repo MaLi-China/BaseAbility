@@ -5,13 +5,36 @@ package mchapter01_array;
  * 开发人员：@author MaLi
  */
 public class Exercise01 {
-    static class ArrayPlus<T> {
-        private T[] container;
-        private int size = 10;
-        private int currentIndex = 0;
+    public static void main(String[] args) {
+        ArrayPlus arrayPlus = new ArrayPlus(2);
+        Object[] objects = arrayPlus.container;
+        //初始化
+        for (int i = 0; i < objects.length; i++) {
+            objects[i] = i;
+        }
+        System.out.println("Before insert...");
+        for (Object object : objects) {
+            System.out.println(object);
+        }
+        System.out.println("After insert!!!");
+        // 插入
+        arrayPlus.append(100);
+
+        arrayPlus.insert(200, 0);
+        arrayPlus.insert(300, 0);
+        objects = arrayPlus.container; //重新指向一下, 否则, 变量指向的还是原来的数组
+        for (Object object : objects) {
+            System.out.println(object);
+        }
+    }
+
+    static class ArrayPlus {
+        private Object[] container; // 存储内容的数组容器
+        private int size = 10; // 默认初始容量
+        private int currentIndex = 0; // 待插入的位置
 
         public ArrayPlus() {
-            this.container = (T[]) new Object[size];
+            this.container = new Object[size];
         }
 
         /**
@@ -21,7 +44,7 @@ public class Exercise01 {
          */
         public ArrayPlus(int size) {
             this.size = size;
-            this.container = (T[]) new Object[size];
+            this.container = new Object[size];
         }
 
         /**
@@ -29,7 +52,7 @@ public class Exercise01 {
          *
          * @param element 追加的元素
          */
-        public void append(T element) {
+        public void append(Object element) {
             this.insert(element, currentIndex);
         }
 
@@ -39,7 +62,7 @@ public class Exercise01 {
          * @param element  要插入的元素
          * @param position 要插入的位置
          */
-        public void insert(T element, int position) {
+        public void insert(Object element, int position) {
             //1, 判断容量是否到达上限
             checkContainerSize();
             //2, 插入
@@ -75,12 +98,12 @@ public class Exercise01 {
          * @param container 要被扩容的数组
          * @return 返回扩容后的新数组
          */
-        private T[] expansion(T[] container) {
+        private Object[] expansion(Object[] container) {
             size = size * 2;
             // 扩容
-            T[] newContainer = (T[]) new Object[size];
+            Object[] newContainer = new Object[size];
             // 拷贝
-            System.arraycopy(container, 0, newContainer, 0, size - 1);
+            System.arraycopy(container, 0, newContainer, 0, size / 2);
             return newContainer;
         }
     }
