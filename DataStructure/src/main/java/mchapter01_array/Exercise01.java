@@ -30,13 +30,7 @@ public class Exercise01 {
          * @param element 追加的元素
          */
         public void append(T element) {
-            //1, 判断容量是否到达上限
-            if (currentIndex == size) {
-                //扩容
-                container = this.expansion(container);
-            }
-            //2, 添加到数组中
-            container[currentIndex++] = element;
+            this.insert(element, currentIndex);
         }
 
         /**
@@ -47,14 +41,11 @@ public class Exercise01 {
          */
         public void insert(T element, int position) {
             //1, 判断容量是否到达上限
-            if (currentIndex == size) {
-                //扩容
-                container = this.expansion(container);
-            }
+            checkContainerSize();
             //2, 插入
             if (position == currentIndex) {
                 //2.1, 插入到末尾
-                this.append(element);
+                container[currentIndex++] = element;
             } else if (position < currentIndex) {
                 //2.2, 插入到中间
                 //1, 拷贝
@@ -64,7 +55,17 @@ public class Exercise01 {
                 //3, 增加容量index
                 currentIndex++;
             } else {
-                throw new IllegalArgumentException("Argument'position' not correct.");
+                throw new IllegalArgumentException("Argument'position' is not correct.");
+            }
+        }
+
+        /**
+         * 判断是否需要扩容
+         */
+        private void checkContainerSize() {
+            if (currentIndex == size) {
+                //扩容
+                container = this.expansion(container);
             }
         }
 
@@ -82,5 +83,7 @@ public class Exercise01 {
             System.arraycopy(container, 0, newContainer, 0, size - 1);
             return newContainer;
         }
+
+
     }
 }
