@@ -26,6 +26,6 @@ public class RenameFiles {
     }
 
     public static void main(String[] args) {
-        renameFiles("E:\\01.架构师课程\\03.拉勾高级架构师\\01 第一阶段 开源框架源码剖析\\模块1 持久层框架设计实现及MyBatis源码分析\\任务3：MyBatis源码剖析", ".mp4");
+        renameFiles("E:\\01.架构师课程\\03.拉勾高级架构师\\01 第一阶段 开源框架源码剖析\\模块2 IoC容器设计实现及Spring源码分析\\01.任务一：自定义IoC&AOP框架", ".mp4");
     }
 }
