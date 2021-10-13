@@ -12,16 +12,6 @@
     <artifactId>mbatis</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <properties>
-        <!-- 字符编码设置 -->
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <!-- 编译器编码 -->
-        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
-        <!-- jdk编码 -->
-        <java.version>1.8</java.version>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>dom4j</groupId>
@@ -39,6 +29,5 @@
             <groupId>c3p0</groupId>
             <artifactId>c3p0</artifactId>
         </dependency>
-
     </dependencies>
 </project>
