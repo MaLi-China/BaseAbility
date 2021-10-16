@@ -54,6 +54,18 @@ public class BeanFactory {
                 //使用BeanUtils封装属性到Bean中
                 BeanUtils.setProperty(instance, name, value);
             }
+            for (Element property : properties) {
+                //处理ref
+                String name = property.attribute("name").getValue();
+                String ref = property.attribute("ref").getValue();
+                //在container中获取ref的值代表的实例
+                Object o = container.get(ref);
+                //将ref代表的实例设置到id代表的实例中去
+                Element bean = property.getParent();
+                String beanId = bean.attribute("id").getValue();
+                Object instance = container.get(beanId); //需要封装属性的bean
+                BeanUtils.setProperty(instance, name, o);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
-    <bean id="user" class="com.nengli51.beans.User">
-        <property name="name">MaLi</property>
-        <property name="age">18</property>
+
+    <bean id="service" class="com.nengli51.service.AccountServiceImpl">
+        <property name="accountDao" ref="dao"></property>
     </bean>
+    <bean id="dao" class="com.nengli51.dao.AccountDaoImpl"></bean>
+
 </beans>
