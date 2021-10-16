@@ -51,6 +51,10 @@ public class BeanFactory {
                 Method writeMethod = descriptor.getWriteMethod();
                 Method readMethod = descriptor.getReadMethod();
                 writeMethod.invoke(instance, value);*/
+                //1, 获取到ref: 获取ref属性值保存
+
+                //2, 没有ref属性: 获取标签值
+
                 //使用BeanUtils封装属性到Bean中
                 BeanUtils.setProperty(instance, name, value);
             }
