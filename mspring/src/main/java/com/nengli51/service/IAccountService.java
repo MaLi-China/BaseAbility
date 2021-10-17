@@ -3,8 +3,8 @@ package com.nengli51.service;
 import com.nengli51.beans.Account;
 
 /**
- * ¹¦ÄÜËµÃ÷£º
- * ¿ª·¢ÈËÔ±£º@author MaLi
+ * åŠŸèƒ½è¯´æ˜ï¼šæ„å»ºè€…
+ * å¼€å‘äººå‘˜ï¼š@author MaLi
  */
 public interface IAccountService {
     void transfer(Account from, Account to, Float amount);
