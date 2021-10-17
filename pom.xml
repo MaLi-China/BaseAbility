@@ -38,7 +38,7 @@
 
     <!-- 统一定义依赖版本号 -->
     <properties>
-        <java.version>8</java.version>
+        <java.version>11</java.version>
         <encoding>UTF-8</encoding>
         <project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
         <!-- 编译器编码 -->
@@ -69,6 +69,7 @@
         <mysql.version>5.1.38</mysql.version>
         <c3p0.version>0.9.1.2</c3p0.version>
         <spring.version>5.2.0.RELEASE</spring.version>
+        <spring.web.version>5.2.0.RELEASE</spring.web.version>
         <spring.aop.version>1.8.7</spring.aop.version>
         <mybatis.version>3.5.7</mybatis.version>
 
@@ -79,6 +80,7 @@
         <curator.version>2.13.0</curator.version>
         <kafka.version>2.3.0</kafka.version>
 
+        <servlet.version>3.0.1</servlet.version>
     </properties>
 
     <!--    依赖版本管理: 用于子module直接引用 -->
@@ -125,6 +127,7 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok.version}</version>
+                <scope>provided</scope>
             </dependency>
             <!-- cglib/cglib -->
             <dependency>
@@ -215,6 +218,12 @@
                 <artifactId>aspectjweaver</artifactId>
                 <version>${spring.aop.version}</version>
             </dependency>
+            <!--Spring-web-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.web.version}</version>
+            </dependency>
 
             <!-- mybatis -->
             <dependency>
@@ -287,7 +296,15 @@
                 <artifactId>curator-recipes</artifactId>
                 <version>${curator.version}</version>
             </dependency>
+            <!--Java web-->
+            <dependency>
+                <groupId>javax.servlet</groupId>
+                <artifactId>javax.servlet-api</artifactId>
+                <version>${servlet.version}</version>
+                <scope>provided</scope>
+            </dependency>
         </dependencies>
+
     </dependencyManagement>
 
 

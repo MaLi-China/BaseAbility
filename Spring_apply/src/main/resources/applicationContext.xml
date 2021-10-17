@@ -9,6 +9,11 @@
         <property name="user" value="root"/>
         <property name="password" value="root"/>
     </bean>
+    <!--定义Bean的方式1: 纯XML配置方式-->
+    <bean id="account" class="spring.ioc.xml.bean.Account">
+        <property name="id" value="1"/>
+        <property name="amount" value="10000"/>
+    </bean>
 
 
 </beans>
