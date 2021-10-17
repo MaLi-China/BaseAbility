@@ -1,4 +1,4 @@
-package spring.aop.service;
+package spring.aop;
 
 /**
  * 模拟业务方法: 等待被aop增强
