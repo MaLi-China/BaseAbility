@@ -12,8 +12,6 @@ public class MainTest {
     public static void main(String[] args) {
         ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         Account account = (Account) context.getBean("account");
-        System.out.println(account);
-
-
+        System.out.println(account.getAList().getClass());
     }
 }
