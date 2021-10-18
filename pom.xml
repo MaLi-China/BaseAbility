@@ -33,6 +33,7 @@
         <module>mbatis</module>
         <module>versionControl</module>
         <module>mspring</module>
+        <module>CompliationPrinciple</module>
 
     </modules>
 
