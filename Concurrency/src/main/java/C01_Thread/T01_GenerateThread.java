@@ -12,13 +12,13 @@ public class T01_GenerateThread {
     public static class Thread_extendThread extends Thread {
         @Override
         public void run() {
-            System.out.println("Generate Thread Method 1 \\t ThreadName: " + Thread.currentThread().getName() + " is running...");
+            System.out.println("Generate Thread Method 1 \t ThreadName: " + Thread.currentThread().getName() + " is running...");
             try {
                 TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("Generate Thread Method 1 \\t ThreadName: " + Thread.currentThread().getName() + " has been ended...");
+            System.out.println("Generate Thread Method 1 \t ThreadName: " + Thread.currentThread().getName() + " has been ended...");
         }
     }
 
@@ -26,13 +26,13 @@ public class T01_GenerateThread {
     public static class Thread_implRunnable implements Runnable {
         @Override
         public void run() {
-            System.out.println("Generate Thread Method 2 \\t ThreadName: " + Thread.currentThread().getName() + " is running...");
+            System.out.println("Generate Thread Method 2 \t ThreadName: " + Thread.currentThread().getName() + " is running...");
             try {
                 TimeUnit.SECONDS.sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            System.out.println("Generate Thread Method 2 \\t ThreadName: " + Thread.currentThread().getName() + " has been ended...");
+            System.out.println("Generate Thread Method 2 \t ThreadName: " + Thread.currentThread().getName() + " has been ended...");
         }
     }
 
