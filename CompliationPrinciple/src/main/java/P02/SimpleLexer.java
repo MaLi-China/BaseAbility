@@ -1,5 +1,8 @@
 package P02;
 
+import P03.SimpleTokenReader;
+import P03.TokenReader;
+
 import java.io.CharArrayReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -24,7 +27,12 @@ public class SimpleLexer {
         String script = "int age = 45;";
         SimpleLexer lexer = new SimpleLexer();
         lexer.tokenize(script);
-        lexer.printTokes();
+        TokenReader reader = new SimpleTokenReader(lexer.tokens);
+        Token token;
+        while ((token = reader.read()) != null) {
+            System.out.println(token.getType() + " --> " + token.getText());
+        }
+//        lexer.printTokes();
     }
 
     // 有限状态机状态判断
@@ -56,14 +64,38 @@ public class SimpleLexer {
             newState = DfaState.IntLiteral;
             currentToken.setType(TokenType.IntLiteral);
             tokenText.append(ch);
-        } else if (ch == '=') {
-            // 首字符是 "="
-            newState = DfaState.Assignment;
-            currentToken.setType(TokenType.Assignment);
+        } else if (ch == '+') {
+            newState = DfaState.Plus;
+            currentToken.setType(TokenType.Plus);
+            tokenText.append(ch);
+        } else if (ch == '-') {
+            newState = DfaState.Minus;
+            currentToken.setType(TokenType.Minus);
+            tokenText.append(ch);
+        } else if (ch == '*') {
+            newState = DfaState.Star;
+            currentToken.setType(TokenType.Star);
+            tokenText.append(ch);
+        } else if (ch == '/') {
+            newState = DfaState.Slash;
+            currentToken.setType(TokenType.Slash);
             tokenText.append(ch);
         } else if (ch == ';') {
             newState = DfaState.SemiColon;
             currentToken.setType(TokenType.SemiColon);
+            tokenText.append(ch);
+        } else if (ch == '(') {
+            newState = DfaState.LeftParen;
+            currentToken.setType(TokenType.LeftParen);
+            tokenText.append(ch);
+        } else if (ch == ')') {
+            newState = DfaState.RightParen;
+            currentToken.setType(TokenType.RightParen);
+            tokenText.append(ch);
+        } else if (ch == '=') {
+            // 首字符是 "="
+            newState = DfaState.Assignment;
+            currentToken.setType(TokenType.Assignment);
             tokenText.append(ch);
         } else {
             newState = DfaState.Initial;
@@ -81,7 +113,7 @@ public class SimpleLexer {
 
 
     // 词法解析
-    public void tokenize(String code) {
+    public SimpleTokenReader tokenize(String code) {
         // Step1: 初始化
         tokens = new ArrayList<>();
         tokenText = new StringBuffer();
@@ -99,7 +131,12 @@ public class SimpleLexer {
                 switch (dfaState) {
                     case Initial:       //初始状态
                     case Assignment:    //赋值状态
-
+                    case Plus:
+                    case Minus:
+                    case Star:
+                    case Slash:
+                    case LeftParen:
+                    case RightParen:
                     case GE:            // >=状态
                         dfaState = changeState(ch);      //重新确定新token状态
                         break;
@@ -170,6 +207,7 @@ public class SimpleLexer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return new SimpleTokenReader(tokens);
     }
 
     private boolean isBlank(char ch) {
