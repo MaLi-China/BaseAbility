@@ -1,5 +1,6 @@
 package spring.ioc.xml.dao;
 
+
 import spring.ioc.xml.bean.Account;
 
 /**
@@ -7,9 +8,10 @@ import spring.ioc.xml.bean.Account;
  * 开发人员：@author MaLi
  */
 public interface IAccountDao {
-    void insert(Account account);
+    /**
+     * @param account 账户
+     */
+    void updateAccount(Account account);
 
-    void update(Account account);
-
-    Account findAccount(Integer aid);
+    Account findAccount(Integer fromAccountId);
 }

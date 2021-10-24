@@ -3,51 +3,23 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+    <bean id="dataSourceC3P0" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
         <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/review"/>
         <property name="user" value="root"/>
         <property name="password" value="root"/>
     </bean>
-    <!--定义Bean的方式1: 纯XML配置方式-->
-    <bean id="account" class="spring.ioc.xml.bean.Account">
-        <property name="id" value="1"/>
-        <property name="amount" value="10000"/>
-        <property name="AList">
-            <array>
-                <value>"listElement1"</value>
-                <value>"listElement2"</value>
-            </array>
-        </property>
-        <property name="AMap">
-            <map>
-                <entry key="key1" value="value1"></entry>
-                <entry key="key2" value="value2"></entry>
-                <entry key="key3" value="value3"></entry>
-            </map>
-        </property>
-        <property name="AProp">
-            <props>
-                <prop key="propKey1">propVlue1</prop>
-                <prop key="propKey2">propVlue2</prop>
-                <prop key="propKey3">propVlue3</prop>
-            </props>
-        </property>
-        <property name="ASet">
-            <set>
-                <value>setElement1</value>
-                <value>setElement2</value>
-                <value>setElement3</value>
-            </set>
-        </property>
-        <property name="AString">
-            <array>
-                <value>"str1"</value>
-                <value>"str2"</value>
-                <value>"str3"</value>
-            </array>
-        </property>
+    <bean id="dataSourceDruid" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/review"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
     </bean>
 
-
+    <bean id="accountDaoImpl" class="spring.ioc.xml.dao.AccountDaoImpl">
+        <property name="dataSource" ref="dataSourceDruid"/>
+    </bean>
+    <bean id="accountServiceImpl" class="spring.ioc.xml.service.AccountServiceImpl">
+        <property name="accountDao" ref="accountDaoImpl"/>
+    </bean>
 </beans>
