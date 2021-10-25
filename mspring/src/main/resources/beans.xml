@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans>
-
-    <bean id="service" class="com.nengli51.service.AccountServiceImpl">
-        <property name="accountDao" ref="dao"></property>
+    <bean id="school" class="com.nengli51.bean.School">
+        <property name="name" value="zgc2x"/>
     </bean>
-    <bean id="dao" class="com.nengli51.dao.AccountDaoImpl"></bean>
-
+    <bean id="child" class="com.nengli51.bean.User">
+        <property name="name" value="Jim"></property>
+        <property name="school" ref="school"/>
+    </bean>
 </beans>
