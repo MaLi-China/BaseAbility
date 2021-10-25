@@ -35,7 +35,7 @@ public class TestAPI01 {
 
     @Test
     public void testMethod3() throws Exception {
-        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("som.xml");
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("books.xml");
         Document document = new SAXReader().read(inputStream);
         Element rootElement = document.getRootElement();
         List<Node> parent = rootElement.selectNodes("parent");
@@ -50,7 +50,7 @@ public class TestAPI01 {
     @Test
     //测试遍历
     public void testMethod2() throws Exception {
-        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("som.xml");
+        InputStream inputStream = this.getClass().getClassLoader().getResourceAsStream("books.xml");
         SAXReader reader = new SAXReader();
         Document document = reader.read(inputStream);
         Element root = document.getRootElement();
@@ -68,7 +68,7 @@ public class TestAPI01 {
     public void method1_load() throws DocumentException, IOException {
         OutputFormat format = OutputFormat.createPrettyPrint();
         format.setEncoding("utf-8");
-        InputStream inputStream = TestAPI01.class.getClassLoader().getResourceAsStream("som.xml");
+        InputStream inputStream = TestAPI01.class.getClassLoader().getResourceAsStream("books.xml");
         SAXReader reader = new SAXReader();
         Document document = reader.read(inputStream);
         Element rootElement = document.getRootElement();
@@ -79,7 +79,7 @@ public class TestAPI01 {
         Element sonson2 = sonNode.addElement("sonson2");
         sonson2.setText("sonson2NodeText");
         //写入XML文件
-        XMLWriter writer = new XMLWriter(new OutputStreamWriter(new FileOutputStream("som.xml"), "UTF-8"));
+        XMLWriter writer = new XMLWriter(new OutputStreamWriter(new FileOutputStream("books.xml"), "UTF-8"));
         writer.write(document);
         writer.close();
 
