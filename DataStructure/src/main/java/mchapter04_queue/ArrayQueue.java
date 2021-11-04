@@ -93,13 +93,12 @@ public class ArrayQueue {
      * 整理队列: 移动数组的前面的元素
      */
     private void arrangement() {
-        int offset = head;
         /*for (int i = head; i < tail; i++) {
-            container[i - offset] = container[i];
+            container[i - head] = container[i];
         }*/
         System.arraycopy(container, head, container, 0, tail - head + 1);
+        tail -= head;
         head = 0;
-        tail = tail - offset;
     }
 
     @Override
