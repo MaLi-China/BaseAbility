@@ -73,6 +73,7 @@
         <spring.version>5.2.0.RELEASE</spring.version>
         <spring.web.version>5.2.0.RELEASE</spring.web.version>
         <spring.aop.version>1.8.7</spring.aop.version>
+        <spring.mvc.version>5.2.0.RELEASE</spring.mvc.version>
         <mybatis.version>3.5.7</mybatis.version>
 
         <hadoop.version>2.7.3</hadoop.version>
@@ -229,6 +230,12 @@
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
                 <version>${spring.web.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.mvc.version}</version>
             </dependency>
 
             <!-- mybatis -->
