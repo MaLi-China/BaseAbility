@@ -13,7 +13,15 @@
     <!--1, 设置包扫描-->
     <context:component-scan base-package="com.nengli51"/>
     <!--2, 设置注解驱动-->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven conversion-service="conversionServiceBean"/>
+    <!--注册自定义类型转换器-->
+    <bean id="conversionServiceBean" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <set>
+                <bean class="com.nengli51.controller.DateConvertor"/>
+            </set>
+        </property>
+    </bean>
     <!--3, 设置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/"/>

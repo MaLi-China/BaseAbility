@@ -2,9 +2,7 @@
 <html>
 <body>
 <h2>success</h2>
-${date1}
-${date2}
-${date3}
-${date4}
+${id} --> ${name} </br>
+${person.id}-->${person.name} -->${person.birthday}
 </body>
 </html>
