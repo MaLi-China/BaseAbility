@@ -27,6 +27,7 @@
         <module>mspring</module>
         <module>mtools</module>
         <module>CompliationPrinciple</module>
+        <module>SpringMVC_apply</module>
 
     </modules>
 
