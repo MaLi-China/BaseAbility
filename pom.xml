@@ -15,24 +15,17 @@
     <!-- 聚合子module -->
     <modules>
         <module>DataStructure</module>
-        <module>Framework_Test</module>
-        <module>Dubbo_apply</module>
         <module>Spring_apply</module>
         <module>MyBatis_apply</module>
-        <module>SpringMVC_apply</module>
         <module>SSM_apply</module>
-        <module>Spark_apply</module>
-        <module>Scala</module>
         <module>DesignPattern</module>
         <module>Concurrency</module>
         <module>JVM</module>
-        <module>JavaIO</module>
         <module>MessageQueue</module>
-        <module>Buffer</module>
         <module>JavaBase</module>
         <module>mbatis</module>
-        <module>versionControl</module>
         <module>mspring</module>
+        <module>mtools</module>
         <module>CompliationPrinciple</module>
 
     </modules>
@@ -176,7 +169,6 @@
                 <artifactId>commons-logging</artifactId>
                 <version>${logging.version}</version>
             </dependency>
-
 
             <!--  ============================网络编程驱动================================  -->
             <dependency>
