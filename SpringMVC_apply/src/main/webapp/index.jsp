@@ -12,7 +12,7 @@
                     data: '{"id":"1","name":"李四","birthday":"2020-01-01"}',
                     dataType: 'json',
                     success: function (data) {
-                        alert(data);
+                        alert(data.id + data.name + data.birthday);
                     }
                 })
             })
