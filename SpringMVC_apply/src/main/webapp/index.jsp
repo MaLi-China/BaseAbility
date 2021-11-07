@@ -26,7 +26,18 @@
 </head>
 <body>
 <h2>Hello World!</h2>
+
 <div>
+    <h2>SpringMVC进行文件上传</h2>
+    <fieldset>
+        <p>测试用例：文件上传-SpringMVC完成文件上传</p>
+        <form action="/demo/upload" enctype="multipart/form-data" method="post">
+            <input type="file" name="uploadFile"/>
+            <input type="submit">
+        </form>
+    </fieldset>
+
+
     <h2>SpringMVC对Restful风格url的支持</h2>
     <fieldset>
         <p>测试用例：文件上传-servlet普通方式</p>
