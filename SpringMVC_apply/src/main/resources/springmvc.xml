@@ -30,4 +30,13 @@
 
     <!--静态资源访问配置-->
     <mvc:resources mapping="/js/**" location="/WEB-INF/js/"/>
+
+
+    <!--    配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="com.nengli51.intercepter.TestIntercepter01"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

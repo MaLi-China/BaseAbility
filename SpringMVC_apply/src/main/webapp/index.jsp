@@ -29,9 +29,19 @@
 <div>
     <h2>SpringMVC对Restful风格url的支持</h2>
     <fieldset>
+        <p>测试用例：文件上传-servlet普通方式</p>
+        <form action="/FileUploadServlet" enctype="multipart/form-data" method="post">
+            <input type="text" name="username"/>
+            <input type="password" name="pwd"/>
+            <input type="file" name="pic"/>
+            <input type="submit">
+        </form>
+    </fieldset>
+
+    <fieldset>
         <p>测试用例：SpringMVC对Restful风格url的支持</p>
 
-        <a href="/demo/handle/15">rest_get测试</a>
+        <a href="/param/get1">rest_get测试</a>
         <a href="/ajax/doAction">ajax测试</a>
 
 
