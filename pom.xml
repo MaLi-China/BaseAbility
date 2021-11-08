@@ -28,6 +28,7 @@
         <module>mtools</module>
         <module>CompliationPrinciple</module>
         <module>SpringMVC_apply</module>
+        <module>MServer</module>
 
     </modules>
 
