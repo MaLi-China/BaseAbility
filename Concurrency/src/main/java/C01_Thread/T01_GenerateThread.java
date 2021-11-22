@@ -41,4 +41,6 @@ public class T01_GenerateThread {
     //Method4: Anonymous Inner Class
 
     //Method5: Lambda
+
+
 }
