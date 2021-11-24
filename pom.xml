@@ -29,6 +29,7 @@
         <module>CompliationPrinciple</module>
         <module>SpringMVC_apply</module>
         <module>MServer</module>
+        <module>apache-tomcat-8.5.50-src</module>
 
     </modules>
 
