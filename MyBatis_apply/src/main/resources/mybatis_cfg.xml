@@ -3,25 +3,71 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-    <properties resource="jdbc.properties">
-    </properties>
+    <!--
+        01. properties配置
+        作用: 将该文件中用到的配置值抽取到properties文件中
+        这样, 以后
+    <properties url="file:///D:\Source\java\BaseAbility\MyBatis_apply\src\test\resources\jdbc.properties"></properties>-->
+    <properties resource="jdbc.properties"></properties>
+
+    <!--
+        02.typeAliases配置
+        作用:设置别名, 例如, 这样配置文件中使用到pojo.User的地方, 就可以直接写user了.
+    -->
     <typeAliases>
-        <package name="com.nengli51.domain"/>
+        <!--方式1: 精确配置-->
+        <typeAlias type="pojo.User" alias="user"/>
+        <!--方式2: 统一配置一个包 -->
+        <package name="pojo"/>
     </typeAliases>
+
+    <!--
+        03. environments配置
+        default属性: 默认加载使用的配置
+    -->
     <environments default="dev">
+
+        <!--数据源: 开发环境-->
         <environment id="dev">
             <transactionManager type="JDBC"></transactionManager>
             <dataSource type="POOLED">
-                <property name="driver" value="${jdbc.driver}"/>
-                <property name="url" value="${jdbc.url}"/>
-                <property name="username" value="${jdbc.username}"/>
-                <property name="password" value="${jdbc.password}"/>
+                <property name="driver" value="${dev.jdbc.driver}"/>
+                <property name="url" value="${dev.jdbc.url}"/>
+                <property name="username" value="${dev.jdbc.username}"/>
+                <property name="password" value="${dev.jdbc.password}"/>
+            </dataSource>
+        </environment>
+
+        <!--数据源: 生产环境-->
+        <environment id="product">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${product.jdbc.driver}"/>
+                <property name="url" value="${product.jdbc.url}"/>
+                <property name="username" value="${product.jdbc.username}"/>
+                <property name="password" value="${product.jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>
 
+    <!--
+        04. mappers配置
+        作用: 加载映射关系
+        -->
     <mappers>
-        <!--        <mapper resource="UserMapper.xml"/>-->
-        <package name="com.nengli51.mapper"/>
+        <!--方式1: 相对路径
+        <mapper resource="UserMapper.xml"/>-->
+
+        <!--方式2: 绝对路径: 注意使用文件访问协议
+        <mapper url="file:///D:\Source\java\BaseAbility\MyBatis_apply\src\test\resources\UserMapper.xml"/>-->
+
+        <!--方式3: 使用mapper接口类  注意, 此时需要将UserMapper.xml文件放到和class指向的类同一个文件夹下-->
+        <!--
+            在resources文件夹下创建一个文件夹: 和UserMapper接口的包相同
+            例如: 在resources下创建mybatis/mapper文件夹; 将UserMapper.xml文件放到其中.
+        <mapper class="mybatis.mapper.UserMapper"/>-->
+
+        <!--方式4: 全部加载一个包内的class (为方式3的升级) -->
+        <package name="mybatis.mapper"/>
     </mappers>
 </configuration>
